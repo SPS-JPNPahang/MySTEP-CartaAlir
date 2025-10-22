@@ -99,8 +99,8 @@
              text-decoration: underline;
          }
          /* Specific color overrides for flowchart cards */
-        .flow-card-pemohon { background-color: #451a03; border-color: #92400e; } /* amber-900 / amber-700 */
-        .flow-card-ppd { background-color: #1e3a8a; border-color: #1e40af; } /* blue-900 / blue-800 */
+        .flow-card-pemohon { background-color: #78350f; border-color: #b45309; } /* amber-800 / amber-700 - Slightly brighter */
+        .flow-card-ppd { background-color: #1e40af; border-color: #1d4ed8; } /* blue-800 / blue-700 - Slightly brighter */
         .text-pemohon { color: #fef3c7; } /* amber-100 */
         .text-ppd { color: #dbeafe; } /* blue-100 */
         .sticky-panel { background-color: #1f2937; border-color: #4b5563; }
@@ -168,12 +168,12 @@
                      <div class="p-6 rounded-lg shadow-md border manual-content">
                          <h2 class="text-2xl font-bold text-amber-400 mb-4 border-b pb-2 border-amber-700">Panduan untuk Pemohon</h2>
                          <div class="manual-prose space-y-4">
-                             <p>Manual ini menerangkan cara menggunakan laman web <a href="#">Permit Mengajar Pahang</a> sebagai pemohon permit mengajar MySTEP.</p>
+                             <p>Manual ini menerangkan cara menggunakan laman web <a href="https://samil-mey.github.io/permit1.0/" target="_blank" rel="noopener noreferrer">Permit Mengajar Pahang</a> sebagai pemohon permit mengajar MySTEP.</p>
                              
                              <h3>Mengenali Antaramuka</h3>
                              <ul>
-                                 <li><strong>Navigasi Kiri:</strong> Menu utama untuk bergerak antara bahagian.</li>
-                                 <li><strong>Kandungan Utama:</strong> Kawasan di sebelah kanan yang memaparkan maklumat atau borang.</li>
+                                 <li><strong>Navigasi Kiri:</strong> Menu utama untuk bergerak antara bahagian (Pengenalan, Borang Permohonan, Manual, Pentadbir Sistem).</li>
+                                 <li><strong>Kandungan Utama:</strong> Kawasan di sebelah kanan yang memaparkan maklumat atau borang berdasarkan tab yang dipilih.</li>
                              </ul>
 
                              <h3>Langkah Penggunaan</h3>
@@ -192,7 +192,7 @@
                              </ul>
                               <h4>3. Semakan Status (Melalui PPD)</h4>
                              <ul>
-                                 <li>Laman web ini <strong>tidak menyediakan</strong> semakan status dalam talian.</li>
+                                 <li>Laman web utama <strong>tidak menyediakan</strong> semakan status dalam talian secara automatik.</li>
                                   <li>Anda perlu menunggu maklum balas atau menghubungi pihak PPD untuk mengetahui status permohonan anda.</li>
                              </ul>
                              <h4>4. Penerimaan Permit</h4>
@@ -207,12 +207,12 @@
                      <div class="p-6 rounded-lg shadow-md border manual-content">
                          <h2 class="text-2xl font-bold text-sky-400 mb-4 border-b pb-2 border-sky-700">Panduan untuk Pentadbir (PPD)</h2>
                          <div class="manual-prose space-y-4">
-                            <p>Manual ini menerangkan cara menggunakan laman web <a href="#">Permit Mengajar Pahang</a> sebagai pentadbir sistem PPD.</p>
+                            <p>Manual ini menerangkan cara menggunakan laman web <a href="https://samil-mey.github.io/permit1.0/" target="_blank" rel="noopener noreferrer">Permit Mengajar Pahang</a> sebagai pentadbir sistem PPD.</p>
                              
                              <h3>Langkah Penggunaan</h3>
                              <h4>1. Log Masuk (Tab: Pentadbir Sistem)</h4>
                              <ul>
-                                 <li>Klik tab <strong>Pentadbir Sistem</strong>.</li>
+                                 <li>Klik tab <strong>Pentadbir Sistem</strong> pada menu navigasi kiri.</li>
                                  <li>Masukkan <strong>ID Pentadbir</strong> (cth: <code>SPS123</code>) dan <strong>Kata Laluan</strong> anda.</li>
                                  <li>Klik butang <strong>Log Masuk</strong>. Jika gagal, mesej ralat akan dipaparkan.</li>
                              </ul>
@@ -220,7 +220,7 @@
                              <h4>2. Meneroka Dashboard</h4>
                              <ul>
                                  <li>Setelah berjaya log masuk, anda akan dibawa ke <strong>Dashboard Pentadbir</strong>.</li>
-                                 <li>Kad ringkasan menunjukkan <strong>Jumlah Permohonan</strong> dan <strong>Jumlah Sekolah Terlibat</strong> berdasarkan data semasa.</li>
+                                 <li>Kad ringkasan menunjukkan <strong>Jumlah Permohonan</strong> dan <strong>Jumlah Sekolah Terlibat</strong> berdasarkan data semasa yang diambil dari Google Sheet.</li>
                                  <li>Carta pai menunjukkan <strong>Pecahan Kategori Sekolah</strong> (Rendah/Menengah).</li>
                                  <li>Carta bar menunjukkan <strong>Taburan Permohonan Mengikut Daerah</strong>.</li>
                             </ul>
@@ -230,23 +230,23 @@
                                 <li>Jadual di bawah carta memaparkan semua rekod permohonan yang diterima dari Google Form.</li>
                                 <li><strong>Mencari & Menapis:</strong>
                                     <ul>
-                                        <li>Gunakan kotak <strong>Cari nama/sekolah...</strong> untuk mencari pemohon atau sekolah tertentu.</li>
+                                        <li>Gunakan kotak <strong>Cari nama/sekolah...</strong> untuk mencari pemohon atau sekolah tertentu secara dinamik.</li>
                                         <li>Gunakan menu lungsur <strong>Semua Daerah</strong> untuk menapis permohonan mengikut daerah PPD.</li>
                                         <li>Gunakan menu lungsur <strong>Semua Kategori</strong> untuk menapis mengikut jenis sekolah (Rendah/Menengah).</li>
                                     </ul>
                                 </li>
-                                <li><strong>Status Permohonan:</strong> Lajur "Status" menunjukkan sama ada permohonan itu "BAHARU" atau "DILULUSKAN". Status berubah secara automatik apabila pautan permit dijana dalam sistem Google Sheets/Apps Script anda.</li>
-                                 <li><strong>Muat Turun Permit:</strong> Klik butang <strong>Permit</strong> berwarna hijau untuk memuat turun salinan permit yang telah dijana (jika sudah diluluskan). Butang akan berwarna kelabu jika permit belum tersedia.</li>
+                                <li><strong>Status Permohonan:</strong> Lajur "Status" menunjukkan sama ada permohonan itu "BAHARU" atau "DILULUSKAN". Status ini dikemas kini secara automatik berdasarkan kewujudan pautan permit dalam Google Sheet anda (melalui Apps Script).</li>
+                                 <li><strong>Muat Turun Permit:</strong> Klik butang <strong>Permit</strong> berwarna hijau pada baris pemohon untuk membuka atau memuat turun salinan PDF permit yang telah dijana oleh sistem backend anda (jika sudah diluluskan). Butang akan berwarna kelabu dan tidak boleh diklik jika permit belum tersedia.</li>
                              </ul>
                              
                              <h4>4. Muat Semula Data</h4>
                               <ul>
-                                 <li>Klik butang <strong>Muat Semula Data</strong> di bahagian atas kanan dashboard untuk mendapatkan data terkini dari Google Sheets.</li>
+                                 <li>Klik butang <strong>Muat Semula Data</strong> di bahagian atas kanan dashboard untuk memaksa laman web mengambil data terkini dari Google Sheets. Berguna jika ada permohonan baru masuk atau status permit dikemaskini.</li>
                              </ul>
 
                              <h4>5. Log Keluar</h4>
                              <ul>
-                                 <li>Klik butang <strong>Log Keluar</strong> untuk keluar dari mod pentadbir.</li>
+                                 <li>Klik butang <strong>Log Keluar</strong> di bahagian atas kanan untuk keluar dari mod pentadbir dan kembali ke paparan awam.</li>
                              </ul>
                          </div>
                      </div>
@@ -256,7 +256,7 @@
         </main>
         
         <footer class="mt-12 text-center border-t border-gray-700 pt-6">
-             <a href="#" class="inline-flex items-center justify-center gap-2 back-button font-bold py-2 px-5 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-amber-400 transition-colors duration-300 text-sm sm:text-base">
+             <a href="https://samil-mey.github.io/permit1.0/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 back-button font-bold py-2 px-5 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-amber-400 transition-colors duration-300 text-sm sm:text-base">
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                  </svg>
@@ -293,14 +293,15 @@
             ];
             
             // Updated actor colors for yellow/black theme
-            const actorColors = { 
+             const actorColors = { 
                 'Pemohon': 'flow-card-pemohon border-amber-700', 
-                'PPD': 'flow-card-ppd border-blue-800' 
+                'PPD': 'flow-card-ppd border-blue-700'  // Changed PPD border slightly for contrast
             };
             const actorTextColors = { 
                 'Pemohon': 'text-pemohon', // Uses specific class defined in CSS
                 'PPD': 'text-ppd'      // Uses specific class defined in CSS
             };
+
 
             // --- Tab Switching Logic ---
             function showView(viewName) {
@@ -393,3 +394,4 @@
     </script>
 </body>
 </html>
+
