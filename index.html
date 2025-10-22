@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Permit Mengajar MySTEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* gray-900 */
+            color: #d1d5db; /* gray-300 */
+        }
+        .tab-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .tab-button-inactive {
+            color: #d1d5db; /* gray-300 */
+            background-color: #374151; /* gray-700 */
+        }
+        .tab-button-inactive:hover {
+            background-color: #4b5563; /* gray-600 */
+        }
+        .tab-button-active {
+            color: #111827; /* gray-900 */
+            background-color: #f59e0b; /* amber-500 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .flow-card {
+            transition: all 0.2s ease-in-out;
+            background-color: #1f2937; /* gray-800 */
+            border-color: #4b5563; /* gray-600 */
+        }
+        .flow-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border-color: #f59e0b; /* amber-500 */
+        }
+        .flow-card.active {
+            border-color: #f59e0b; /* amber-500 */
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+        }
+        .arrow {
+            position: absolute;
+            left: 50%;
+            bottom: -28px;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #6b7280; /* gray-500 */
+        }
+        .details-panel-content, .manual-content {
+            transition: opacity 0.3s ease-in-out;
+            background-color: #1f2937; /* gray-800 */
+            border-color: #4b5563; /* gray-600 */
+        }
+        .manual-prose h3 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            margin-top: 1.5rem; /* mt-6 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            padding-bottom: 0.25rem; /* pb-1 */
+            border-bottom: 1px solid #4b5563; /* gray-600 */
+            color: #f9fafb; /* gray-50 */
+        }
+         .manual-prose h4 {
+            font-size: 1rem; /* text-base */
+            font-weight: 600; /* font-semibold */
+            margin-top: 1rem; /* mt-4 */
+            margin-bottom: 0.5rem; /* mb-2 */
+             color: #e5e7eb; /* gray-200 */
+        }
+        .manual-prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem; /* pl-6 */
+            margin-top: 0.5rem; /* mt-2 */
+            space-y: 0.5rem; /* space-y-2 */
+            color: #9ca3af; /* gray-400 */
+        }
+         .manual-prose code {
+            background-color: #374151; /* gray-700 */
+            padding: 0.125rem 0.375rem; /* px-1.5 py-0.5 */
+            border-radius: 0.25rem; /* rounded */
+            font-size: 0.875rem; /* text-sm */
+            font-family: monospace;
+            color: #f3f4f6; /* gray-100 */
+        }
+         .manual-prose strong {
+             font-weight: 600;
+             color: #f9fafb; /* gray-50 */
+         }
+         .manual-prose a {
+             color: #60a5fa; /* blue-400 */
+         }
+         .manual-prose a:hover {
+             text-decoration: underline;
+         }
+         /* Specific color overrides for flowchart cards */
+        .flow-card-pemohon { background-color: #451a03; border-color: #92400e; } /* amber-900 / amber-700 */
+        .flow-card-ppd { background-color: #1e3a8a; border-color: #1e40af; } /* blue-900 / blue-800 */
+        .text-pemohon { color: #fef3c7; } /* amber-100 */
+        .text-ppd { color: #dbeafe; } /* blue-100 */
+        .sticky-panel { background-color: #1f2937; border-color: #4b5563; }
+        .back-button {
+             background-color: #f59e0b; /* amber-500 */
+             color: #111827; /* gray-900 */
+        }
+        .back-button:hover {
+             background-color: #d97706; /* amber-600 */
+        }
+
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <div class="container mx-auto px-4 py-8">
+        
+        <header class="text-center mb-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+             <img src="imej1.png" alt="Logo JPN Pahang" class="h-16 w-16 sm:h-20 sm:w-20 object-contain">
+             <div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white">Panduan Lengkap Permit Mengajar MySTEP</h1>
+                <p class="mt-2 text-lg text-gray-400">Carta Alir Proses dan Manual Pengguna</p>
+             </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex justify-center items-center gap-4 mb-8">
+            <button id="flowchartTab" class="tab-button font-bold py-2 px-6 rounded-full">
+                Carta Alir
+            </button>
+            <button id="manualTab" class="tab-button font-bold py-2 px-6 rounded-full">
+                Manual Pengguna
+            </button>
+        </nav>
+
+        <main>
+            <!-- Flowchart View -->
+            <div id="flowchartView">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+                    <section class="lg:col-span-2">
+                        <div class="w-full p-4 rounded-lg bg-gray-800 shadow-md border border-gray-600">
+                            <p class="text-center text-gray-400 mb-8 font-medium">Klik pada setiap langkah untuk melihat maklumat terperinci.</p>
+                            <div id="flowchart" class="flex flex-col items-center w-full max-w-xl mx-auto space-y-12">
+                                <!-- Flowchart content generated by JS -->
+                            </div>
+                        </div>
+                    </section>
+                    <aside class="lg:col-span-1">
+                        <div class="sticky top-8 p-6 rounded-2xl shadow-lg border min-h-[300px] sticky-panel">
+                            <div id="details-panel-content" class="details-panel-content">
+                                <h3 id="details-title" class="text-xl font-bold text-white mb-4">Maklumat Langkah</h3>
+                                <div id="details-body" class="space-y-4 text-gray-400">
+                                    <p>Sila pilih satu langkah dari carta alir di sebelah kiri untuk melihat penerangan penuh.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <!-- Manual View -->
+            <div id="manualView" class="hidden">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <!-- Manual for Applicant -->
+                     <div class="p-6 rounded-lg shadow-md border manual-content">
+                         <h2 class="text-2xl font-bold text-amber-400 mb-4 border-b pb-2 border-amber-700">Panduan untuk Pemohon</h2>
+                         <div class="manual-prose space-y-4">
+                             <p>Manual ini menerangkan cara menggunakan laman web <a href="#">Permit Mengajar Pahang</a> sebagai pemohon permit mengajar MySTEP.</p>
+                             
+                             <h3>Mengenali Antaramuka</h3>
+                             <ul>
+                                 <li><strong>Navigasi Kiri:</strong> Menu utama untuk bergerak antara bahagian.</li>
+                                 <li><strong>Kandungan Utama:</strong> Kawasan di sebelah kanan yang memaparkan maklumat atau borang.</li>
+                             </ul>
+
+                             <h3>Langkah Penggunaan</h3>
+                             <h4>1. Memahami Proses (Tab: Pengenalan)</h4>
+                             <ul>
+                                 <li>Mulakan dengan membaca maklumat di tab <strong>Pengenalan</strong>.</li>
+                                 <li>Fahami tentang program MySTEP dan gambaran keseluruhan proses permohonan.</li>
+                             </ul>
+
+                             <h4>2. Mengisi Borang (Tab: Borang Permohonan)</h4>
+                             <ul>
+                                 <li>Klik tab <strong>Borang Permohonan</strong>.</li>
+                                 <li>Borang Google Form akan dipaparkan. Isi semua medan yang diperlukan dengan teliti.</li>
+                                 <li>Pastikan anda memuat naik dokumen sokongan yang diminta (cth: salinan IC, surat tawaran MySTEP, bukti bayaran).</li>
+                                 <li>Klik <strong>Hantar</strong> (atau Submit) pada borang Google Form tersebut.</li>
+                             </ul>
+                              <h4>3. Semakan Status (Melalui PPD)</h4>
+                             <ul>
+                                 <li>Laman web ini <strong>tidak menyediakan</strong> semakan status dalam talian.</li>
+                                  <li>Anda perlu menunggu maklum balas atau menghubungi pihak PPD untuk mengetahui status permohonan anda.</li>
+                             </ul>
+                             <h4>4. Penerimaan Permit</h4>
+                             <ul>
+                                 <li>Pihak PPD akan memaklumkan anda apabila permit telah diluluskan dan sedia untuk diambil.</li>
+                                 <li>Anda perlu hadir ke PPD untuk mengambil permit fizikal dan resit rasmi.</li>
+                             </ul>
+                         </div>
+                     </div>
+
+                     <!-- Manual for System Admin -->
+                     <div class="p-6 rounded-lg shadow-md border manual-content">
+                         <h2 class="text-2xl font-bold text-sky-400 mb-4 border-b pb-2 border-sky-700">Panduan untuk Pentadbir (PPD)</h2>
+                         <div class="manual-prose space-y-4">
+                            <p>Manual ini menerangkan cara menggunakan laman web <a href="#">Permit Mengajar Pahang</a> sebagai pentadbir sistem PPD.</p>
+                             
+                             <h3>Langkah Penggunaan</h3>
+                             <h4>1. Log Masuk (Tab: Pentadbir Sistem)</h4>
+                             <ul>
+                                 <li>Klik tab <strong>Pentadbir Sistem</strong>.</li>
+                                 <li>Masukkan <strong>ID Pentadbir</strong> (cth: <code>SPS123</code>) dan <strong>Kata Laluan</strong> anda.</li>
+                                 <li>Klik butang <strong>Log Masuk</strong>. Jika gagal, mesej ralat akan dipaparkan.</li>
+                             </ul>
+
+                             <h4>2. Meneroka Dashboard</h4>
+                             <ul>
+                                 <li>Setelah berjaya log masuk, anda akan dibawa ke <strong>Dashboard Pentadbir</strong>.</li>
+                                 <li>Kad ringkasan menunjukkan <strong>Jumlah Permohonan</strong> dan <strong>Jumlah Sekolah Terlibat</strong> berdasarkan data semasa.</li>
+                                 <li>Carta pai menunjukkan <strong>Pecahan Kategori Sekolah</strong> (Rendah/Menengah).</li>
+                                 <li>Carta bar menunjukkan <strong>Taburan Permohonan Mengikut Daerah</strong>.</li>
+                            </ul>
+
+                             <h4>3. Menguruskan Permohonan (Jadual Utama)</h4>
+                             <ul>
+                                <li>Jadual di bawah carta memaparkan semua rekod permohonan yang diterima dari Google Form.</li>
+                                <li><strong>Mencari & Menapis:</strong>
+                                    <ul>
+                                        <li>Gunakan kotak <strong>Cari nama/sekolah...</strong> untuk mencari pemohon atau sekolah tertentu.</li>
+                                        <li>Gunakan menu lungsur <strong>Semua Daerah</strong> untuk menapis permohonan mengikut daerah PPD.</li>
+                                        <li>Gunakan menu lungsur <strong>Semua Kategori</strong> untuk menapis mengikut jenis sekolah (Rendah/Menengah).</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Status Permohonan:</strong> Lajur "Status" menunjukkan sama ada permohonan itu "BAHARU" atau "DILULUSKAN". Status berubah secara automatik apabila pautan permit dijana dalam sistem Google Sheets/Apps Script anda.</li>
+                                 <li><strong>Muat Turun Permit:</strong> Klik butang <strong>Permit</strong> berwarna hijau untuk memuat turun salinan permit yang telah dijana (jika sudah diluluskan). Butang akan berwarna kelabu jika permit belum tersedia.</li>
+                             </ul>
+                             
+                             <h4>4. Muat Semula Data</h4>
+                              <ul>
+                                 <li>Klik butang <strong>Muat Semula Data</strong> di bahagian atas kanan dashboard untuk mendapatkan data terkini dari Google Sheets.</li>
+                             </ul>
+
+                             <h4>5. Log Keluar</h4>
+                             <ul>
+                                 <li>Klik butang <strong>Log Keluar</strong> untuk keluar dari mod pentadbir.</li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+
+        </main>
+        
+        <footer class="mt-12 text-center border-t border-gray-700 pt-6">
+             <a href="#" class="inline-flex items-center justify-center gap-2 back-button font-bold py-2 px-5 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-amber-400 transition-colors duration-300 text-sm sm:text-base">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                   <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                 </svg>
+                 Kembali ke Laman Utama Permit Mengajar
+             </a>
+             <p class="mt-4 text-sm text-gray-500">&copy; 2025 Hak Cipta Terpelihara. Jabatan Pendidikan Negeri Pahang.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab Elements
+            const flowchartTab = document.getElementById('flowchartTab');
+            const manualTab = document.getElementById('manualTab');
+            const flowchartView = document.getElementById('flowchartView');
+            const manualView = document.getElementById('manualView');
+
+            // Flowchart Elements
+            const flowchartContainer = document.getElementById('flowchart');
+            const detailsTitle = document.getElementById('details-title');
+            const detailsBody = document.getElementById('details-body');
+            const detailsPanelContent = document.getElementById('details-panel-content');
+            let activeCard = null;
+            let flowchartInitialized = false; // Flag to check if flowchart is built
+
+            const processSteps = [
+                 { id: 1, actor: 'Pemohon', title: 'Hantar Permohonan & Bayaran', description: 'Pemohon mengemukakan borang permohonan yang lengkap beserta bayaran fi ke Pejabat Pendidikan Daerah (PPD).', documents: 'Borang Permohonan, Bukti Bayaran', outcome: 'Permohonan dihantar untuk semakan PPD.' },
+                { id: 2, actor: 'PPD', title: 'Semak Permohonan & Bayaran', description: 'PPD menerima dan menyemak kelengkapan borang permohonan serta jumlah pembayaran yang diterima.', documents: 'Borang Permohonan, Bukti Bayaran', outcome: 'Jika tidak lengkap, permohonan akan dikembalikan. Jika lengkap, proses diteruskan.' },
+                { id: 3, actor: 'PPD', title: 'Proses Bayaran & Resit', description: 'Unit Kewangan PPD memproses bayaran dan mengeluarkan resit rasmi.', documents: 'Maklumat Bayaran', outcome: 'Resit Pembayaran dikeluarkan.' },
+                { id: 4, actor: 'PPD', title: 'Tapisan Keselamatan', description: 'PPD merekodkan nama pemohon dalam sistem untuk tujuan tapisan keselamatan.', documents: 'Nama Pemohon', outcome: 'Rekod untuk tapisan keselamatan diwujudkan.' },
+                { id: 5, actor: 'PPD', title: 'Sedia & Luluskan Permit', description: 'PPD menyediakan draf, menyemak, dan meluluskan Permit Mengajar setelah semua saringan selesai.', documents: 'Permit Mengajar Lulus', outcome: 'Permit sedia untuk diserahkan kepada pemohon.' },
+                { id: 6, actor: 'Pemohon', title: 'Terima Permit & Resit', description: 'PPD menyerahkan Permit Mengajar yang telah diluluskan beserta Resit Pembayaran rasmi kepada pemohon. Proses permohonan dianggap selesai.', documents: 'Permit Mengajar, Resit Pembayaran', outcome: 'Tamat.' },
+            ];
+            
+            // Updated actor colors for yellow/black theme
+            const actorColors = { 
+                'Pemohon': 'flow-card-pemohon border-amber-700', 
+                'PPD': 'flow-card-ppd border-blue-800' 
+            };
+            const actorTextColors = { 
+                'Pemohon': 'text-pemohon', // Uses specific class defined in CSS
+                'PPD': 'text-ppd'      // Uses specific class defined in CSS
+            };
+
+            // --- Tab Switching Logic ---
+            function showView(viewName) {
+                const isFlowchart = viewName === 'flowchart';
+                
+                flowchartView.classList.toggle('hidden', !isFlowchart);
+                manualView.classList.toggle('hidden', isFlowchart);
+
+                flowchartTab.classList.toggle('tab-button-active', isFlowchart);
+                flowchartTab.classList.toggle('tab-button-inactive', !isFlowchart);
+                manualTab.classList.toggle('tab-button-active', !isFlowchart);
+                manualTab.classList.toggle('tab-button-inactive', isFlowchart);
+
+                // Initialize flowchart only when the tab is clicked and if not already initialized
+                if(isFlowchart && !flowchartInitialized) {
+                    initializeFlowchart();
+                    flowchartInitialized = true; // Set flag to true after initialization
+                }
+            }
+
+            flowchartTab.addEventListener('click', () => showView('flowchart'));
+            manualTab.addEventListener('click', () => showView('manual'));
+
+            // --- Flowchart Logic ---
+            function initializeFlowchart() {
+                 if (!flowchartContainer) return; // Exit if container not found
+                 flowchartContainer.innerHTML = ''; // Clear previous content if any
+
+                let html = '';
+                processSteps.forEach((step, index) => {
+                    const colorClass = actorColors[step.actor];
+                    const textColorClass = actorTextColors[step.actor]; // Get text color class
+                    html += `
+                        <div class="flow-card relative w-full p-4 rounded-lg shadow-md cursor-pointer border-2 ${colorClass}" data-id="${step.id}">
+                            <p class="text-sm font-bold ${textColorClass}">${step.actor}</p> 
+                            <p class="font-semibold text-gray-100 mt-1">${step.id}. ${step.title}</p>
+                            ${index < processSteps.length - 1 ? '<div class="arrow"></div>' : ''}
+                        </div>
+                    `;
+                });
+                flowchartContainer.innerHTML = html;
+            }
+
+            function updateDetails(stepId) {
+                const step = processSteps.find(s => s.id === parseInt(stepId));
+                if (!step) return;
+                 const textColorClass = actorTextColors[step.actor]; // Get text color class for panel
+
+                detailsPanelContent.style.opacity = 0;
+                setTimeout(() => {
+                    detailsTitle.textContent = `${step.id}. ${step.title}`;
+                    detailsBody.innerHTML = `
+                        <div class="pb-2 border-b border-gray-600">
+                            <span class="font-semibold text-sm text-gray-500">Pihak Bertanggungjawab:</span>
+                            <p class="font-medium ${textColorClass}">${step.actor}</p> 
+                        </div>
+                        <div class="py-2 border-b border-gray-600">
+                            <span class="font-semibold text-sm text-gray-500">Penerangan:</span>
+                            <p>${step.description}</p>
+                        </div>
+                        <div class="py-2 border-b border-gray-600">
+                            <span class="font-semibold text-sm text-gray-500">Dokumen / Output:</span>
+                            <p class="font-mono text-sm bg-gray-700 p-2 rounded-md text-gray-200">${step.documents}</p>
+                        </div>
+                        <div class="pt-2">
+                            <span class="font-semibold text-sm text-gray-500">Hasil / Langkah Seterusnya:</span>
+                            <p>${step.outcome}</p>
+                        </div>`;
+                    detailsPanelContent.style.opacity = 1;
+                }, 200);
+            }
+
+            // Event listener for flowchart card clicks (ensure container exists)
+            if (flowchartContainer) {
+                 flowchartContainer.addEventListener('click', (e) => {
+                    const card = e.target.closest('.flow-card');
+                    if (card) {
+                        const stepId = card.dataset.id;
+                        if (activeCard) activeCard.classList.remove('active');
+                        card.classList.add('active');
+                        activeCard = card;
+                        updateDetails(stepId);
+                    }
+                });
+            }
+
+            // --- Initial Load ---
+            showView('flowchart'); // Start with flowchart view
+        });
+    </script>
+</body>
+</html>
